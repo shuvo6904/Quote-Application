@@ -15,6 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var quoteViewModel : QuoteViewModel
+
+
     lateinit var recyclerView: RecyclerView
     lateinit var adapter : QuotePagingAdapter
 
@@ -23,8 +25,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recyclerView = findViewById(R.id.quote_list_recycler)
+
         quoteViewModel = ViewModelProvider(this).get(QuoteViewModel::class.java)
-        adapter = QuotePagingAdapter()
+
+
+        adapter = QuotePagingAdapter(this)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)

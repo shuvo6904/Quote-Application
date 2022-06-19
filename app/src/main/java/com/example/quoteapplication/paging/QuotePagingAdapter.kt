@@ -1,5 +1,7 @@
 package com.example.quoteapplication.paging
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,10 +9,13 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.quoteapplication.AuthorDetailsActivity
 import com.example.quoteapplication.R
 import com.example.quoteapplication.model.Result
 
-class QuotePagingAdapter : PagingDataAdapter<Result, QuotePagingAdapter.QuoteViewHolder>(COMPARATOR){
+class QuotePagingAdapter(context: Context) : PagingDataAdapter<Result, QuotePagingAdapter.QuoteViewHolder>(COMPARATOR){
+
+    private val context = context
 
     class QuoteViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val quote = itemView.findViewById<TextView>(R.id.quote)
@@ -23,6 +28,13 @@ class QuotePagingAdapter : PagingDataAdapter<Result, QuotePagingAdapter.QuoteVie
         if (item != null) {
             holder.quote.text = item.content
             holder.author.text = item.author
+        }
+
+
+        holder.author.setOnClickListener {
+            val intent = Intent(context, AuthorDetailsActivity::class.java)
+            intent.putExtra("author", item?.author)
+            context.startActivity(intent)
         }
 
     }
