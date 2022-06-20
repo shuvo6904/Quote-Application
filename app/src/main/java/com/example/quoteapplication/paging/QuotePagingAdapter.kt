@@ -5,11 +5,13 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quoteapplication.AuthorDetailsActivity
+import com.example.quoteapplication.MainActivity
 import com.example.quoteapplication.R
 import com.example.quoteapplication.model.Result
 
@@ -19,7 +21,7 @@ class QuotePagingAdapter(context: Context) : PagingDataAdapter<Result, QuotePagi
 
     class QuoteViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val quote = itemView.findViewById<TextView>(R.id.quote)
-        val author = itemView.findViewById<TextView>(R.id.author)
+        val author = itemView.findViewById<Button>(R.id.author)
     }
 
     override fun onBindViewHolder(holder: QuoteViewHolder, position: Int) {

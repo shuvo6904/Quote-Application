@@ -1,6 +1,8 @@
 package com.example.quoteapplication
 
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var quoteViewModel : QuoteViewModel
+    //lateinit var progressBar: ProgressBar
 
 
     lateinit var recyclerView: RecyclerView
@@ -23,10 +26,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //progressBar = findViewById(R.id.progress_bar)
 
         recyclerView = findViewById(R.id.quote_list_recycler)
 
         quoteViewModel = ViewModelProvider(this).get(QuoteViewModel::class.java)
+
+        //progressBar.visibility = View.GONE
 
 
         adapter = QuotePagingAdapter(this)
@@ -35,7 +41,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
+
+
         quoteViewModel.list.observe(this, Observer {
+
             adapter.submitData(lifecycle, it)
         })
     }

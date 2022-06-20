@@ -11,16 +11,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AuthorViewModel @Inject constructor(private val repository: QuoteRepository) : ViewModel(){
+class AuthorViewModel @Inject constructor(private val repository: QuoteRepository) : ViewModel() {
 
-        fun getAuthorDetails(query : String){
-            viewModelScope.launch(Dispatchers.IO) {
-                repository.getAuthor(query)
-            }
+    val author: LiveData<AuthorDetails>
+        get() = repository.author
+
+    fun getAuthorDetails(query: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getAuthor(query)
         }
+    }
 
-
-
-    val author : LiveData<AuthorDetails>
-    get() = repository.author
 }

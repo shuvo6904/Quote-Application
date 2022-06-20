@@ -5,18 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/_5sdp"
+    android:background="#BFE2F1"
     tools:context=".AuthorDetailsActivity">
 
     <TextView
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_30sdp"
+        android:gravity="center"
+        android:textColor="@color/black"
         android:id="@+id/author_name"
-        android:text="Author Name"
+        android:textSize="@dimen/_20ssp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:id="@+id/author_bio"
-        android:text="Author Bio"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_15ssp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:gravity="center"
+        android:id="@+id/author_des"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13ssp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:gravity="center"
+        android:id="@+id/author_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12ssp"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:id="@+id/author_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
 
 </LinearLayout>
