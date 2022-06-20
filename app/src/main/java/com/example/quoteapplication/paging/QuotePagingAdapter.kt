@@ -10,8 +10,7 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quoteapplication.AuthorDetailsActivity
-import com.example.quoteapplication.MainActivity
+import com.example.quoteapplication.ui.AuthorDetailsActivity
 import com.example.quoteapplication.R
 import com.example.quoteapplication.model.Result
 

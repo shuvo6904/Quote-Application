@@ -1,13 +1,12 @@
-package com.example.quoteapplication
+package com.example.quoteapplication.ui
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.quoteapplication.R
 import com.example.quoteapplication.paging.QuotePagingAdapter
 import com.example.quoteapplication.viewmodel.QuoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
