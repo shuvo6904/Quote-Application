@@ -27,6 +27,8 @@ class QuoteAuthorActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val slug : String = intent.getStringExtra("slug").toString()
+        val name : String = intent.getStringExtra("name").toString()
+        binding.textView.text = "Quote From  -$name"
 
         recyclerView = findViewById(R.id.author_quote_recycler)
 
@@ -45,9 +47,11 @@ class QuoteAuthorActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         quoteAuthorViewModel.authorQuote.observe(this, Observer {
+
             adapter.authorQuote = it.results.toMutableList()
             adapter.notifyDataSetChanged()
             Log.d("SHUVO", it.results.toMutableList().toString())
+
         })
 
 

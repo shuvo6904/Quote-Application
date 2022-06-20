@@ -18,6 +18,7 @@ class AuthorDetailsActivity : AppCompatActivity() {
     lateinit var authorViewModel : AuthorViewModel
     lateinit var progressBar: ProgressBar
     lateinit var slug : String
+    lateinit var name : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +50,7 @@ class AuthorDetailsActivity : AppCompatActivity() {
             authorLink.text = it.results.get(0).link
 
             slug = it.results.get(0).slug
+            name = it.results.get(0).name
 
         })
 
@@ -57,6 +59,7 @@ class AuthorDetailsActivity : AppCompatActivity() {
     fun getAuthorQuotes(view: View) {
         val intent = Intent(this, QuoteAuthorActivity::class.java)
         intent.putExtra("slug", slug)
+        intent.putExtra("name", name)
         startActivity(intent)
     }
 }
